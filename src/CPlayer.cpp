@@ -22,7 +22,7 @@ void CPlayer::Drink_MP_Potion()
 void CPlayer::Buy_HP_Potion()
 {
     int target(HP_POTION);
-    vector<CItem*>::iterator it = m_pInven.begin();
+    vector<CItem*>::iterator it = m_pInven.end();
 
     for (vector<CItem*>::iterator iter = m_pInven.begin(); iter != m_pInven.end(); ++iter)
     {
@@ -33,15 +33,18 @@ void CPlayer::Buy_HP_Potion()
         }
     }
 
-    if ((*it)->Get_Type() == target)
+    if (it != m_pInven.end())
     {
         m_pStatus->iGold -= (*it)->Get_Gold();
         (*it)->IncreaseCount();
     }
+
     else
     {
-        m_pStatus->iGold -= (*it)->Get_Gold();
         m_pInven.push_back(new CPotion(HP_POTION,50));
+        it = m_pInven.end();
+        --it;
+        m_pStatus->iGold -= (*it)->Get_Gold();
         (*it)->IncreaseCount();
     }
 }
