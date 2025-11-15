@@ -2,14 +2,15 @@
 
 class CObj;
 
-class CMaingmae
-{
+class CMaingmae {
 public:
-    CMaingmae() : m_pPlayer(nullptr) {}
-    ~CMaingmae() {}
+  CMaingmae() : m_pPlayer(nullptr) {}
+  ~CMaingmae() {}
+
 public:
-    void Initialize();
-    void NewGame();
+  void Initialize();
+  void NewGame();
+
 private:
-    CObj* m_pPlayer;
+  CObj *m_pPlayer;
 };

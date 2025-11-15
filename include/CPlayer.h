@@ -12,10 +12,14 @@ public:
     ~CPlayer() {}
 public:
     void ShowStatus() override;
+    // 행동 함수 모음
     void Drink_HP_Potion();
     void Drink_MP_Potion();
     void ShowInven();
     void Buy_HP_Potion();
+    void Buy_MP_Potion();
+    void Buy_Weapon();
+    void Buy_Armor();
 public:
     PLAYERSTATUS* Get_Status() {return m_pStatus;}
 protected:
